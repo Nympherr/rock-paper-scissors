@@ -18,10 +18,26 @@ function computerChoice(computer){
     return computer;
 }
 
+function playerChoice(player){
+    let choice = prompt("Rock, paper or scissors?");
+    choice = choice.toLowerCase();
 
-
-function playerChoice(){
-
+    switch(choice){
+        case "rock":
+            player = "rock";
+            break;
+        case "paper":
+            player = "paper";
+            break;
+        case "scissors":
+            player = "scissors";
+            break;
+        default:
+            console.log("You wrote something wrong!");
+            playerChoice(player);
+            break;
+    }
+    return player;
 }
 
 function playRound(){
