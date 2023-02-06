@@ -1,9 +1,9 @@
-let player;
-let computer;
+
 let result;
 let play = false;
 
-function computerChoice(computer){
+function computerChoice(){
+    let computer;
     let number = Math.floor(Math.random() * 3) + 1;
     switch(number){
         case 1:
@@ -19,9 +19,23 @@ function computerChoice(computer){
     return computer;
 }
 
-function playerChoice(player){
-    let choice = prompt("Rock, paper or scissors?");
-    choice = choice.toLowerCase();
+function playerChoice(){
+    let player;
+    let choice;
+    while(true){
+       choice = prompt("Rock, paper or scissors?");
+       choice = choice.toLowerCase();
+
+       if(choice == "rock"){
+        break;
+       }
+       else if (choice == "paper"){
+        break;
+       }
+       else if (choice == "scissors"){
+        break;
+       }
+    }
 
     switch(choice){
         case "rock":
@@ -33,18 +47,15 @@ function playerChoice(player){
         case "scissors":
             player = "scissors";
             break;
-        default:
-            console.log("You wrote something wrong!");
-            playerChoice(player);
-            break;
     }
     return player;
 }
 
-function playRound(player, computer){
+function playRound(){
 
-        console.log(player);
-        console.log(computer);
+        let computer = computerChoice();
+        let player = playerChoice();
+
     switch(player){
 
         case "rock":
@@ -84,9 +95,11 @@ function playRound(player, computer){
             break;
     }
 }
-computer = computerChoice(computer);
-player = playerChoice(player);
-playRound(player,computer);
+
+playRound();
+
+
+
 function game(){
 
 }
