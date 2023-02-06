@@ -1,6 +1,6 @@
 
-let result;
-let play = false;
+let resultPlayer = 0;
+let resultComputer = 0;
 
 function computerChoice(){
     let computer;
@@ -64,30 +64,36 @@ function playRound(){
             }
             else if(computer == "paper"){
                 console.log("Player loses! rock vs paper")
+                resultComputer++;
             }
             else {
                 console.log("Player wins! rock vs scissors")
+                resultPlayer++;
             }
             break;
         
         case "paper":
             if(computer == "rock"){
                 console.log("Player wins! paper wins against rock")
+                resultPlayer++;
             }
             else if(computer == "paper"){
                 console.log("It's a tie! paper does not beat paper")
             }
             else {
                 console.log("Computer wins! paper loses against scissors")
+                resultComputer++;
             }
             break;
         
         case "scissors":
             if(computer == "rock"){
                 console.log("Computer wins! scissors lose against rock")
+                resultComputer++;
             }
             else if(computer == "paper"){
                 console.log("Player wins! scissors win against paper")
+                resultPlayer++;
             }
             else {
                 console.log("It's a tie! scissors don't beat scissors")
@@ -96,14 +102,27 @@ function playRound(){
     }
 }
 
-playRound();
-
-
-
 function game(){
-
+    console.log("This is a best of 5! Good luck!")
+    for(let i = 0; i < 5; i++){
+        playRound();
+        console.log(`Player has ${resultPlayer} points!`);
+        console.log(`Computer has ${resultComputer} points!`)
+    }
+    resultComputer = 0;
+    resultPlayer = 0;
+    playAgain();
 }
 
 function playAgain(){
-
+    let choice = prompt("Would you like to play again? Yes/No?");
+    choice = choice.toLowerCase();
+    if (choice == "yes"){
+        game();
+    }
+    else{
+        console.log("Goodluck!");
+    }
 }
+
+game();
