@@ -125,4 +125,4 @@ function playAgain(){
     }
 }
 
-game();
+// game();
