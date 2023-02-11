@@ -29,6 +29,7 @@ button {
     border-color: black;
 
 }
-.scaling {
+button:hover {
     scale:1.2;
+    border-color: #e9500f;
 }

@@ -2,6 +2,20 @@
 let resultPlayer = 0;
 let resultComputer = 0;
 
+const buttons = document.querySelectorAll("button");
+console.log(buttons);
+
+
+
+
+buttons.forEach((button) => {
+    button.addEventListener("click", function() {
+        const identity = this.id;
+        console.log(identity);
+    })
+});
+
+
 function computerChoice(){
     let computer;
     let number = Math.floor(Math.random() * 3) + 1;
